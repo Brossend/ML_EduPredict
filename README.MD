@@ -416,10 +416,10 @@ Process finished with exit code 0
 | CatBoost (baseline)    | 0.7939                |
 | CatBoost + Optuna      | 0.796+                |
 
-* Выполнен baseline (+2)
-* Сравнено 5 разных семейств моделей (+6)
-* Применена Optuna (50 trials) → +3 балла
-* Проведён честный анализ trade-off качество/время → +5 баллов
+* Выполнен baseline
+* Сравнено 5 разных семейств моделей
+* Применена Optuna (50 trials)
+* Проведён честный анализ trade-off качество/время
 
 КОНСОЛЬНЫЙ ВЫВОД ИЗ COMPROMISE СКРИПТА
 
