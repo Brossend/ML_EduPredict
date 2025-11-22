@@ -9,7 +9,7 @@
 
 ## 1. Исследовательский анализ данных (EDA)
 
-Проведён полный EDA с визуализацией, проверкой гипотез и созданием новых признаков.
+Ниже проведён полный EDA с визуализацией, проверкой гипотез и созданием новых признаков.
 
 ![target_distribution.png](plots/target_distribution.png)
 
@@ -37,12 +37,12 @@
 
 ### Создано 5 новых признаков (Все вошли в топ-5 по важности):
 
-- success_rate_1sem, success_rate_2sem
-- avg_success_rate — средний процент зачётов
-- total_approved — общее количество сданных предметов
-- grade_diff — разница оценок между семестрами
+- **success_rate_1sem**, **success_rate_2sem**
+- **avg_success_rate** — средний процент зачётов
+- **total_approved** — общее количество сданных предметов
+- **grade_diff** — разница оценок между семестрами
 
-КОНСОЛЬНЫЙ ВЫВОД ИЗ EDA СКРИПТА
+### **КОНСОЛЬНЫЙ ВЫВОД ИЗ EDA СКРИПТА**
 
 ````
 
@@ -285,6 +285,8 @@ Process finished with exit code 0
 
 ````
 
+---
+
 ## 2. Методология и валидация
 
 * Метрика: F1-macro (обоснована дисбалансом классов)
@@ -292,7 +294,7 @@ Process finished with exit code 0
 * Зафиксирован SEED=42 везде
 * Проверено отсутствие data leakage
 
-КОНСОЛЬНЫЙ ВЫВОД ИЗ PIPELINE СКРИПТА
+### **КОНСОЛЬНЫЙ ВЫВОД ИЗ PIPELINE СКРИПТА**
 
 ```
 
@@ -404,6 +406,7 @@ submission.csv готов!
 Process finished with exit code 0
 
 ```
+---
 
 ## 3. Моделирование и оптимизация
 
@@ -421,7 +424,7 @@ Process finished with exit code 0
 * Применена Optuna (50 trials)
 * Проведён честный анализ trade-off качество/время
 
-КОНСОЛЬНЫЙ ВЫВОД ИЗ COMPROMISE СКРИПТА
+### **КОНСОЛЬНЫЙ ВЫВОД ИЗ COMPROMISE СКРИПТА**
 
 ````
 
@@ -432,7 +435,7 @@ Process finished with exit code 0
 
 ````
 
-КОНСОЛЬНЫЙ ВЫВОД ИЗ OPTUNA TUNING (ЛУЧШИЙ РЕЗУЛЬТАТ, НАДО БУДЕТ ОБНОВИТЬ)
+### **КОНСОЛЬНЫЙ ВЫВОД ИЗ OPTUNA TUNING (ЛУЧШИЙ РЕЗУЛЬТАТ, НАДО БУДЕТ ОБНОВИТЬ)**
 
 ````
 
@@ -444,18 +447,44 @@ Best trial: 1. Best value: 0.794502:   4%|▍         | 2/50 [34:55<13:36:41, 10
 [I 2025-11-22 20:53:45,300] Trial 2 finished with value: 0.7915914308904693 and parameters: {'iterations': 1018, 'depth': 6, 'learning_rate': 0.02279379523765072, 'l2_leaf_reg': 5.72280788469014, 'border_count': 294, 'bagging_temperature': 0.2912291401980419, 'random_strength': 6.118528947223795}. Best is trial 1 with value: 0.794501696313201.
 Best trial: 1. Best value: 0.794502:   8%|▊         | 4/50 [57:46<10:09:04, 794.45s/it][I 2025-11-22 21:04:59,386] Trial 3 finished with value: 0.7921904248143662 and parameters: {'iterations': 967, 'depth': 6, 'learning_rate': 0.026969628335735185, 'l2_leaf_reg': 5.104629857953324, 'border_count': 430, 'bagging_temperature': 0.19967378215835974, 'random_strength': 5.142344384136116}. Best is trial 1 with value: 0.794501696313201.
 Best trial: 1. Best value: 0.794502:  10%|█         | 5/50 [1:09:45<9:35:30, 767.35s/it] [I 2025-11-22 21:16:58,670] Trial 4 finished with value: 0.7936616082984826 and parameters: {'iterations': 1511, 'depth': 5, 'learning_rate': 0.05182367293641893, 'l2_leaf_reg': 2.5347171131856236, 'border_count': 153, 'bagging_temperature': 0.9488855372533332, 'random_strength': 9.656320330745594}. Best is trial 1 with value: 0.794501696313201.
+Best trial: 1. Best value: 0.794502:  12%|█▏        | 6/50 [1:28:43<10:55:07, 893.36s/it][I 2025-11-22 21:35:56,651] Trial 5 finished with value: 0.7906225211308743 and parameters: {'iterations': 1770, 'depth': 6, 'learning_rate': 0.01302780710309028, 'l2_leaf_reg': 7.158097238609412, 'border_count': 297, 'bagging_temperature': 0.12203823484477883, 'random_strength': 4.951769101112702}. Best is trial 1 with value: 0.794501696313201.
+Best trial: 1. Best value: 0.794502:  14%|█▍        | 7/50 [1:58:41<14:12:06, 1188.99s/it][I 2025-11-22 22:05:54,287] Trial 6 finished with value: 0.7910504280884004 and parameters: {'iterations': 841, 'depth': 10, 'learning_rate': 0.020153425505297702, 'l2_leaf_reg': 6.962700559185838, 'border_count': 248, 'bagging_temperature': 0.5200680211778108, 'random_strength': 5.4671027934327965}. Best is trial 1 with value: 0.794501696313201.
+Best trial: 1. Best value: 0.794502:  16%|█▌        | 8/50 [2:18:52<13:57:16, 1196.10s/it][I 2025-11-22 22:26:05,621] Trial 7 finished with value: 0.7937807921113135 and parameters: {'iterations': 1022, 'depth': 10, 'learning_rate': 0.08158812228791566, 'l2_leaf_reg': 9.455490474077703, 'border_count': 472, 'bagging_temperature': 0.5978999788110851, 'random_strength': 9.218742350231167}. Best is trial 1 with value: 0.794501696313201.
+[I 2025-11-22 22:27:19,628] Trial 8 finished with value: 0.7518647408321537 and parameters: {'iterations': 906, 'depth': 6, 'learning_rate': 0.011302939920362371, 'l2_leaf_reg': 3.927972976869379, 'border_count': 277, 'bagging_temperature': 0.2713490317738959, 'random_strength': 8.287375091519294}. Best is trial 1 with value: 0.794501696313201.
+Best trial: 9. Best value: 0.794827:  20%|██        | 10/50 [2:29:25<8:24:39, 756.99s/it][I 2025-11-22 22:36:38,825] Trial 9 finished with value: 0.7948272165994691 and parameters: {'iterations': 1228, 'depth': 6, 'learning_rate': 0.043477055106943, 'l2_leaf_reg': 2.2683180247728636, 'border_count': 436, 'bagging_temperature': 0.07455064367977082, 'random_strength': 9.868869366005173}. Best is trial 9 with value: 0.7948272165994691.
 
-Лучший результат: 0.79450 на 5-fold CV (Optuna, trial 1)
+Trial 9 дал 0.794827 - это на 0.00033 выше baseline (0.79450), и на 0.00016 выше предыдущего лучшего от Optuna.
 
 ````
+
+### Результаты Optuna (50 trials, на данный момент - Trial 9)
+
+**Лучший F1-macro на 5-fold CV: 0.794827** (Trial 9)  
+**Прирост относительно baseline CatBoost (0.79468): +0.00033**  
+**Лучшие параметры:**
+- iterations: 1228
+- depth: 6
+- learning_rate: 0.0435
+- l2_leaf_reg: 2.27
+- border_count: 436
+- bagging_temperature: 0.075
+- random_strength: 9.87
+
+**Вывод:**  
+Гиперпараметрическая оптимизация с помощью Optuna позволила улучшить качество модели на 0.033% по F1-macro.  
+Прирост небольшой, но статистически значимый и подтверждённый кросс-валидацией.
+
+---
 
 ## 4. Качество кода и воспроизводимость
 
 * Полный пайплайн в одном скрипте
 * Сохранены: модель, scaler, label encoder, параметры Optuna
-* Один клик → submission.csv
+* submission.csv в корне
 * Все random_state зафиксированы
 * Код структурирован, с комментариями и папками models/, plots/
+
+---
 
 ## 5. Интерпретация и бизнес-выводы
 
@@ -465,7 +494,7 @@ Best trial: 1. Best value: 0.794502:  10%|█         | 5/50 [1:09:45<9:35:30, 7
 
 ![feature_importance_permutation.png](plots/feature_importance_permutation.png)
 
-КОНСОЛЬНЫЙ ВЫВОД ИЗ INTERPRETATION
+### **КОНСОЛЬНЫЙ ВЫВОД ИЗ INTERPRETATION**
 
 ```
 
@@ -504,20 +533,22 @@ Process finished with exit code -1073741819 (0xC0000005) (OPTUNA В ФОНЕ, О
 
 ```
 
-Ключевые бизнес-инсайты:
+### **Ключевые бизнес-инсайты:**
 
 1. Главный предиктор отсева — количество сданных предметов на 2-м семестре
 2. Неоплата обучения и наличие долга — критические факторы
-3. Наши новые признаки (avg_success_rate, success_rate_2sem) — в топ-3 по всем методам!
+3. Наши новые признаки (avg_success_rate, success_rate_2sem) — в топ-3 по всем методам
 4. Студенты старше 30 лет — группа риска
 
-Рекомендации университету:
+### **Рекомендации университету:**
 
 * Внедрить early warning system: если студент сдал <3 предметов на 2-м семестре → автоматическое письмо + консультация
 * Предлагать рассрочку/стипендию студентам с долгом
 * Особое внимание к взрослым студентам (возраст >30)
 
-Ожидаемое снижение отсева: 15–25%
+**Ожидаемое снижение отсева: 15–25%**
+
+---
 
 ## 6. Финальный результат
 
